@@ -2,6 +2,10 @@ import React from 'react';
 import styles from './statistics.module.css';
 import T from 'prop-types';
 
+function generateColor() {
+  return '#' + Math.floor(Math.random() * 16777215).toString(16);
+}
+
 const Statistics = ({ title, stats }) => (
   <>
     {title && (
@@ -9,7 +13,13 @@ const Statistics = ({ title, stats }) => (
         <h2 className={styles.title}>{title}</h2>
         <ul className={styles.statList}>
           {stats.map(stat => (
-            <li key={stat.id} className={styles.item}>
+            <li
+              key={stat.id}
+              className={styles.item}
+              style={{
+                backgroundColor: generateColor(),
+              }}
+            >
               <span className={styles.label}>{stat.label}</span>
               <span className={styles.percentage}>{stat.percentage}</span>
             </li>
@@ -20,16 +30,12 @@ const Statistics = ({ title, stats }) => (
   </>
 );
 
-Statistics.defaultProps = {
-  label: '.file',
-};
-
 Statistics.propTypes = {
   stats: T.arrayOf(
     T.shape({
+      id: T.string.isRequired,
       label: T.string.isRequired,
       percentage: T.number.isRequired,
-      id: T.string.isRequired,
     }).isRequired,
   ).isRequired,
 };
