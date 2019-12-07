@@ -7,27 +7,23 @@ function generateColor() {
 }
 
 const Statistics = ({ title, stats }) => (
-  <>
-    {title && (
-      <section className={styles.statistics}>
-        <h2 className={styles.title}>{title}</h2>
-        <ul className={styles.statList}>
-          {stats.map(stat => (
-            <li
-              key={stat.id}
-              className={styles.item}
-              style={{
-                backgroundColor: generateColor(),
-              }}
-            >
-              <span className={styles.label}>{stat.label}</span>
-              <span className={styles.percentage}>{stat.percentage}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )}
-  </>
+  <section className={styles.statistics}>
+    {title && <h2 className={styles.title}>{title}</h2>}
+    <ul className={styles.statList}>
+      {stats.map(stat => (
+        <li
+          key={stat.id}
+          className={styles.item}
+          style={{
+            backgroundColor: generateColor(),
+          }}
+        >
+          <span className={styles.label}>{stat.label}</span>
+          <span className={styles.percentage}>{stat.percentage}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
 );
 
 Statistics.propTypes = {
