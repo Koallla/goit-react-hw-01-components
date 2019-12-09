@@ -1,10 +1,7 @@
 import React from 'react';
-import styles from './statistics.module.css';
 import T from 'prop-types';
-
-function generateColor() {
-  return '#' + Math.floor(Math.random() * 16777215).toString(16);
-}
+import styles from './statistics.module.css';
+import generateColor from './generateColor';
 
 const Statistics = ({ title, stats }) => (
   <section className={styles.statistics}>

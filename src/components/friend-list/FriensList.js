@@ -9,7 +9,7 @@ const FriendList = ({ friends }) => (
         <span
           className={friend.isOnline ? styles.isOnline : styles.isoffLine}
         ></span>
-        <img className={styles.avatar} src={friend.avatar} alt="" width="48" />
+        <img className={styles.avatar} src={friend.avatar} alt="avatar" />
         <p className={styles.name}>{friend.name}</p>
       </li>
     ))}
